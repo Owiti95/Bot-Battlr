@@ -1,11 +1,12 @@
-import React, {useEffect}from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 
 function FetchData() {
+    const [data, setData] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:8001/bots')
-        .then(res => console.log(res))
+        .then(res => setData(res.data))
         .catch(err => console.log(err));
     }, []);
   return (
