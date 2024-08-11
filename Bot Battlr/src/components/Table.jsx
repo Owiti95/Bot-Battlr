@@ -1,9 +1,18 @@
 import React from 'react'
 
-function Table() {
+const Table = () => {
   return (
-    <div>Table</div>
-  )
+    <table>
+        <thead>
+            <tr>
+
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+  );
 }
 
 export default Table
