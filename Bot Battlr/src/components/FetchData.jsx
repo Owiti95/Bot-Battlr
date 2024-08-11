@@ -10,7 +10,17 @@ function FetchData() {
         .catch(err => console.log(err));
     }, []);
   return (
-    <div>console</div>
+    <div>
+        <div>
+            <h2>Bots Collection</h2>
+            {/* <Table /> */}
+
+            <div>
+                <h2>My Army</h2>
+                {/* <Table /> */}
+            </div>
+        </div>
+    </div>
   )
 }
 
