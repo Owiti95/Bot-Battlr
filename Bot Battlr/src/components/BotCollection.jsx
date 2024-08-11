@@ -1,7 +1,7 @@
 import React from 'react'
 
-const BotCollection = ({}) => (
-    <tr>
+const BotCollection = ({bot, onAddClick, onDeleteClick}) => (
+    <tr onClick={()=>onAddClick(bot)} style={{cursor: 'pointer'}}>
     <td>{bot.id}</td>
     <td>{bot.name}</td>
     <td>{bot.health}</td>
@@ -17,7 +17,7 @@ const BotCollection = ({}) => (
     />
     </td>
     <td>
-        <button>X</button>
+        <button onClick={()=>onDeleteClick(bot.id)}>X</button>
     </td>
     </tr>
 );
@@ -27,4 +27,4 @@ const BotCollection = ({}) => (
 //   )
 // }
 
-export default BotCollection
+export default BotCollection;
