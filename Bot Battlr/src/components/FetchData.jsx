@@ -9,7 +9,7 @@ function FetchData() {
     const [selectedBots, setSelectedBots] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:8001/bots')
+        axios.get('https://bot-inky-theta-38.vercel.app/')
         .then(res => setData(res.data))
         .catch(err => console.log(err));
     }, []);
@@ -27,7 +27,7 @@ function FetchData() {
     };
 
     const handleDeleteClick = (botId) => {
-        axios.delete(`http://localhost:8001/bots/${botId}`)
+        axios.delete(`https://bot-inky-theta-38.vercel.app/${botId}`)
         .then(() => {
             setData(data.filter(bot => bot.id !== botId));
             setSelectedBots(selectedBots.filter(bot => bot.id !== botId));
