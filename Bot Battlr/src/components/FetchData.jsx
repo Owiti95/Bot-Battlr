@@ -23,7 +23,7 @@ function FetchData() {
 
     const handleRemoveClick = (botId) => {
         setSelectedBots(selectedBots.filter(bot => bot.id !== botId));
-        console.log('removed bot with id:, botId');
+        console.log('removed bot with id:', botId);
     };
 
     const handleDeleteClick = (botId) => {
@@ -53,16 +53,18 @@ function FetchData() {
     ));
   return (
     <div className='container'>
-        <div className='mt-3'>
-            <h2>Bots Collection</h2>
+        <div>
+            <h2 className='bots-collection'>Bots Collection</h2>
+            <div className='table-container'>
             <Table headers={botHeaders} rows={botRows}/>
 
             {selectedBots.length > 0 && (
-            <div className='mt-5'>
-                <h2>My Army</h2>
+            <div>
+                <h2 className='my-army'>My Army</h2>
                 <Table headers={selectedBotHeaders} rows={selectedBotRows} />
                 </div>
             )}
+            </div>
         </div>
     </div>
   );
