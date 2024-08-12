@@ -19,19 +19,19 @@
   background-color: #546109; 
   border: 1px solid #080808fa;
   border-radius: 10px;
-  width: 100%; /* Ensures table takes full width of container */
-  border-collapse: collapse; /* Collapses borders for a clean look */
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .table th, .table td {
-  padding: 12px; /* Adds padding inside cells */
-  border-bottom: 1px solid #270505; /* Adds border below each row */
+  padding: 12px;
+  border-bottom: 1px solid #270505;
 }
 /*scroll table*/
 .scroll {
-  max-height: 700px; /* Adjust height as needed */
-  overflow-y: auto; /* Enables vertical scrolling */
-  overflow-x: auto; /* Enables horizontal scrolling */
+  max-height: 700px;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 .bots-collection{
   color: wheat;
