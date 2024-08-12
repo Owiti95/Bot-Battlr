@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
-import BotCollection from './BotCollection';
+import React, {useState, useEffect} from 'react'
+import axios from 'axios';
+import BotRow from './BotRow';
 import YourBotArmy from './YourBotArmy';
 import Table from './Table';
 
@@ -23,15 +23,16 @@ function FetchData() {
 
     const handleRemoveClick = (botId) => {
         setSelectedBots(selectedBots.filter(bot => bot.id !== botId));
+        console.log('removed bot with id:, botId');
     };
 
     const handleDeleteClick = (botId) => {
-        axios.delete('http://localhost:8001/bots/${botId}')
+        axios.delete(`http://localhost:8001/bots/${botId}`)
         .then(() => {
             setData(data.filter(bot => bot.id !== botId));
             setSelectedBots(selectedBots.filter(bot => bot.id !== botId));
         })
-        .catch(err => console.log("Failed to delete", err));
+        .catch(err => console.log('Failed to delete bot:', err));
     };
     
     const botHeaders = ['id', 'name', 'health', 'damage', 'armor', 'bot_class', 'avatar_url', 'actions'];
@@ -45,21 +46,21 @@ function FetchData() {
         onDeleteClick={handleDeleteClick}/>
     ));
     const selectedBotRows = selectedBots.map(bot => (
-        <selectedBotRow
+        <YourBotArmy
         key={bot.id}
         bot={bot}
         onRemoveClick={handleRemoveClick}/>
     ));
   return (
-    <div>
-        <div>
+    <div className='container'>
+        <div className='mt-3'>
             <h2>Bots Collection</h2>
             <Table headers={botHeaders} rows={botRows}/>
 
             {selectedBots.length > 0 && (
-            <div>
+            <div className='mt-5'>
                 <h2>My Army</h2>
-                <Table headers={selectedBotHeaders} rows={selectedBotRows}/>
+                <Table headers={selectedBotHeaders} rows={selectedBotRows} />
                 </div>
             )}
         </div>
@@ -67,4 +68,4 @@ function FetchData() {
   );
 }
 
-export default FetchData
+export default FetchData;
