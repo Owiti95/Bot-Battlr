@@ -1,6 +1,6 @@
 import React from 'react'
 
-const YourBotArmy = ({bot, onRemoveClick}) => {
+const YourBotArmy = ({bot, onRemoveClick}) => (
     <tr>
         <td>{bot.id}</td>
         <td>{bot.name}</td>
@@ -20,6 +20,6 @@ const YourBotArmy = ({bot, onRemoveClick}) => {
             <button className='btn btn-danger' onClick={() => onRemoveClick(bot.id)}>Remove</button>
         </td>
     </tr>
-};
+);
 
 export default YourBotArmy;
